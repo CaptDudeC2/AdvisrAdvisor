@@ -1,69 +1,230 @@
-import Image from "next/image";
+import React, { useState, useEffect } from 'react';
+import { Header } from './components/Header';
+import { ThemeSelectorBar, ThemeKey } from './components/ThemeSelectorBar';
+import { HeroSection } from './components/LandingPage/HeroSection';
+import { LiveAuditSimulator } from './components/LandingPage/LiveAuditSimulator';
+import { TierExplainerSection } from './components/LandingPage/TierExplainerSection';
+import { HowItWorks } from './components/LandingPage/HowItWorks';
+import { AdvocateCharter } from './components/LandingPage/AdvocateCharter';
+import { TestimonialsAndAudits } from './components/LandingPage/TestimonialsAndAudits';
+import { Footer } from './components/Footer';
+import { IntakeWizard } from './components/IntakeFlow/IntakeWizard';
+import { HouseholdSweepModal } from './components/HouseholdSweep/HouseholdSweepModal';
+import { VehicleVaultModal } from './components/VehicleVault/VehicleVaultModal';
+import { AddToVaultModal } from './components/VehicleVault/AddToVaultModal';
+import { ServiceDriveEmergencyModal } from './components/ServiceDriveEmergencyModal';
+import { AdvisorControlRoom } from './components/AdvisorControlRoom/AdvisorControlRoom';
+import { INITIAL_HOUSEHOLD_VEHICLES } from './data/sampleVehicles';
+import { TierId, VehicleRecord, EstimateAuditResult } from './types';
 
-export default function Home() {
+export default function App() {
+  // Theme State: defaults to cobalt-dark (Blue and Black)
+  const [currentTheme, setCurrentTheme] = useState<ThemeKey>(() => {
+    return (localStorage.getItem('advisr_theme_selection') as ThemeKey) || 'cobalt-dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.remove('theme-cobalt-dark', 'theme-clean-light-blue', 'theme-stealth-black-blue', 'theme-classic-emerald');
+    document.documentElement.classList.add(`theme-${currentTheme}`);
+    document.body.classList.remove('theme-cobalt-dark', 'theme-clean-light-blue', 'theme-stealth-black-blue', 'theme-classic-emerald');
+    document.body.classList.add(`theme-${currentTheme}`);
+  }, [currentTheme]);
+
+  const handleSelectTheme = (theme: ThemeKey) => {
+    setCurrentTheme(theme);
+    localStorage.setItem('advisr_theme_selection', theme);
+  };
+
+  // Modal & Navigation States
+  const [isControlRoomActive, setIsControlRoomActive] = useState<boolean>(false);
+  const [isIntakeOpen, setIsIntakeOpen] = useState<boolean>(false);
+  const [intakeInitialSampleId, setIntakeInitialSampleId] = useState<string>('sample-1');
+  const [intakeInitialTier, setIntakeInitialTier] = useState<TierId>('tier-1');
+
+  const [isSweepOpen, setIsSweepOpen] = useState<boolean>(false);
+  const [sweepVinQuery, setSweepVinQuery] = useState<string>('1HGCR2F83HA019482');
+
+  const [isVaultOpen, setIsVaultOpen] = useState<boolean>(false);
+  const [isAddToVaultOpen, setIsAddToVaultOpen] = useState<boolean>(false);
+  const [isEmergencyOpen, setIsEmergencyOpen] = useState<boolean>(false);
+
+  // Household Vehicles state
+  const [householdVehicles, setHouseholdVehicles] = useState<VehicleRecord[]>(INITIAL_HOUSEHOLD_VEHICLES);
+
+  // Open Intake with parameters
+  const handleOpenIntake = (sampleId?: string, tier?: TierId) => {
+    if (sampleId) setIntakeInitialSampleId(sampleId);
+    if (tier) setIntakeInitialTier(tier);
+    setIsIntakeOpen(true);
+  };
+
+  // Open Sweep with initial VIN
+  const handleStartVinSweep = (vin: string) => {
+    setSweepVinQuery(vin);
+    setIsSweepOpen(true);
+  };
+
+  // When a vehicle is picked from Sweep or Vault for audit
+  const handleSelectVehicleForAudit = (vehicle: VehicleRecord) => {
+    setIntakeInitialTier(vehicle.currentTier || 'tier-1');
+    setIsIntakeOpen(true);
+  };
+
+  // Save an audited estimate to the vehicle's history
+  const handleSaveAuditToVault = (audit: EstimateAuditResult) => {
+    setHouseholdVehicles(prev => prev.map(v => {
+      if (v.vin === audit.vehicleVin || v.model.includes(audit.vehicleEvaluated)) {
+        return {
+          ...v,
+          carfaxSummary: {
+            ...v.carfaxSummary,
+            estimatedAuditSavingsToDate: (v.carfaxSummary.estimatedAuditSavingsToDate || 0) + audit.totalEstimatedSavings
+          }
+        };
+      }
+      return v;
+    }));
+  };
+
+  // Save a DIY or Shop record to vehicle history
+  const handleSaveRecordToVault = (record: {
+    vehicleId: string;
+    mileage: number;
+  }) => {
+    setHouseholdVehicles(prev => prev.map(v => {
+      if (v.id === record.vehicleId) {
+        return {
+          ...v,
+          mileage: Math.max(v.mileage, record.mileage),
+          carfaxSummary: {
+            ...v.carfaxSummary,
+            serviceRecords: v.carfaxSummary.serviceRecords + 1
+          }
+        };
+      }
+      return v;
+    }));
+  };
+
+  if (isControlRoomActive) {
+    return (
+      <AdvisorControlRoom
+        onExitToCustomerApp={() => setIsControlRoomActive(false)}
+      />
+    );
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className={`min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-blue-600 selection:text-white font-sans transition-colors duration-200 theme-${currentTheme}`}>
+      
+      {/* 4-Look Visual Theme Switcher Bar */}
+      <ThemeSelectorBar
+        currentTheme={currentTheme}
+        onSelectTheme={handleSelectTheme}
+      />
+
+      {/* Persistent Navigation Header */}
+      <Header
+        onOpenIntake={() => handleOpenIntake()}
+        onOpenVault={() => setIsVaultOpen(true)}
+        onOpenSweep={() => setIsSweepOpen(true)}
+        onOpenEmergency={() => setIsEmergencyOpen(true)}
+        onOpenControlRoom={() => setIsControlRoomActive(true)}
+        vaultCount={householdVehicles.length}
+        currentView="landing"
+        onNavigateHome={() => {
+          setIsIntakeOpen(false);
+          setIsSweepOpen(false);
+          setIsVaultOpen(false);
+          setIsAddToVaultOpen(false);
+          setIsEmergencyOpen(false);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
+
+      {/* Main Content Sections */}
+      <main className="flex-1">
+        {/* 1. Hero Section with Primary VIN & Household Sweep Hook */}
+        <HeroSection
+          onStartVinSweep={handleStartVinSweep}
+          onOpenIntake={(sampleId) => handleOpenIntake(sampleId)}
+          onOpenEmergency={() => setIsEmergencyOpen(true)}
+          onOpenVehicleVault={() => setIsVaultOpen(true)}
+          onOpenAddToVault={() => setIsAddToVaultOpen(true)}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        {/* 2. Interactive Live Audit Simulator with Tier Toggling */}
+        <LiveAuditSimulator
+          onOpenFullIntake={(sampleId, tier) => handleOpenIntake(sampleId, tier)}
+        />
+
+        {/* 3. The 3 Customer Tiers Explainer & Comparison Matrix */}
+        <TierExplainerSection
+          onSelectTierForIntake={(tierId) => handleOpenIntake('sample-1', tierId)}
+        />
+
+        {/* 4. How It Works: 4-Step Zero Friction Flow */}
+        <HowItWorks
+          onOpenIntake={() => handleOpenIntake()}
+        />
+
+        {/* 5. Independent Advocate Legal Charter & Pledge */}
+        <AdvocateCharter />
+
+        {/* 6. Verified Customer Audits & Savings Feed */}
+        <TestimonialsAndAudits />
       </main>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Modal 1: Zero-Friction Customer Intake Wizard */}
+      {isIntakeOpen && (
+        <IntakeWizard
+          initialSampleId={intakeInitialSampleId}
+          initialTier={intakeInitialTier}
+          onClose={() => setIsIntakeOpen(false)}
+          onSaveToVault={handleSaveAuditToVault}
+        />
+      )}
+
+      {/* Modal 2: Household Vehicle Sweep & Free CARFAX Modal */}
+      {isSweepOpen && (
+        <HouseholdSweepModal
+          initialVin={sweepVinQuery}
+          onClose={() => setIsSweepOpen(false)}
+          onSelectVehicleForAudit={handleSelectVehicleForAudit}
+        />
+      )}
+
+      {/* Modal 3: Supabase Vehicle Vault Modal */}
+      {isVaultOpen && (
+        <VehicleVaultModal
+          vehicles={householdVehicles}
+          onClose={() => setIsVaultOpen(false)}
+          onSelectVehicleForAudit={handleSelectVehicleForAudit}
+          onOpenSweep={() => setIsSweepOpen(true)}
+        />
+      )}
+
+      {/* Modal 4: Add to Vault Conditional Modal (Path A: DIY Form vs Path B: Repair Shop AI Ingest) */}
+      {isAddToVaultOpen && (
+        <AddToVaultModal
+          isOpen={isAddToVaultOpen}
+          onClose={() => setIsAddToVaultOpen(false)}
+          vehicles={householdVehicles}
+          onSaveRecord={handleSaveRecordToVault}
+        />
+      )}
+
+      {/* Modal 5: Service Drive Emergency Fast Action Modal */}
+      {isEmergencyOpen && (
+        <ServiceDriveEmergencyModal
+          onClose={() => setIsEmergencyOpen(false)}
+          onOpenIntake={(sampleId) => handleOpenIntake(sampleId)}
+        />
+      )}
+
     </div>
   );
 }
