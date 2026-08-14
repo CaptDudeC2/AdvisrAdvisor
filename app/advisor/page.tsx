@@ -9,9 +9,8 @@ import { AdvisorVehicleProfile, AdvisorAiDiscrepancy, AdvisorChatMessage } from 
 import { LeftPaneServiceHistory } from '../../src/components/AdvisorControlRoom/LeftPaneServiceHistory';
 import { CenterPaneActionCenter } from '../../src/components/AdvisorControlRoom/CenterPaneActionCenter';
 import { RightPaneUpcomingDeferred } from '../../src/components/AdvisorControlRoom/RightPaneUpcomingDeferred';
-import { OverrideAiModal } from '../../src/components/AdvisorControlRoom/OverrideAiModal';
+import OverrideAiModal from '@/components/AdvisorControlRoom/OverrideAiModal';
 
-import { OverrideAiModal } from './OverrideAiModal';
 
 interface AdvisorControlRoomProps {
   onExitToCustomerApp: () => void;
