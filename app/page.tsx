@@ -1,18 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Header } from '../src/components/Header';
-import { ThemeSelectorBar, ThemeKey } from '../src/components/ThemeSelectorBar';
-import { HeroSection } from '../src/components/LandingPage/HeroSection';
-import { LiveAuditSimulator } from '../src/components/LandingPage/LiveAuditSimulator';
-import { TierExplainerSection } from '../src/components/LandingPage/TierExplainerSection';
-import { HowItWorks } from '../src/components/LandingPage/HowItWorks';
-import { AdvocateCharter } from '../src/components/LandingPage/AdvocateCharter';
-import { TestimonialsAndAudits } from '../src/components/LandingPage/TestimonialsAndAudits';
-import { Footer } from '../src/components/Footer';
-import { IntakeWizard } from '../src/components/IntakeFlow/IntakeWizard';
-import { HouseholdSweepModal } from '../src/components/HouseholdSweep/HouseholdSweepModal';
-import { VehicleVaultModal } from '../src/components/VehicleVault/VehicleVaultModal';
+import React, { useState } from 'react';
+import { 
+  Search, ShieldCheck, Car, FileText, Sparkles, UserCheck, LogOut, Sliders, Zap, CheckCircle2, AlertTriangle, RefreshCw, ExternalLink, ChevronDown, Building2, Lock, Layers, PhoneCall, Mail, Gauge 
+} from 'lucide-react';
+import { SAMPLE_ADVISOR_VEHICLES } from '../../src/data/advisorData';
+import { AdvisorVehicleProfile, AdvisorAiDiscrepancy, AdvisorChatMessage } from '../../src/types';
+import { LeftPaneServiceHistory } from '../../src/components/AdvisorControlRoom/LeftPaneServiceHistory';
+import { CenterPaneActionCenter } from '../../src/components/AdvisorControlRoom/CenterPaneActionCenter';
+import { RightPaneUpcomingDeferred } from '../../src/components/AdvisorControlRoom/RightPaneUpcomingDeferred';
+import { OverrideAiModal } from '../../src/components/AdvisorControlRoom/OverrideAiModal';
+
 import { AddToVaultModal } from '../src/components/VehicleVault/AddToVaultModal';
 import { ServiceDriveEmergencyModal } from '../src/components/ServiceDriveEmergencyModal';
 import { AdvisorControlRoom } from '../src/components/AdvisorControlRoom/AdvisorControlRoom';
