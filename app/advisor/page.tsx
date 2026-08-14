@@ -1,33 +1,16 @@
-import React, { useState } from 'react';
 'use client';
 
+import React, { useState } from 'react';
 import { 
-  Search, 
-  ShieldCheck, 
-  Car, 
-  FileText, 
-  Sparkles, 
-  UserCheck, 
-  LogOut, 
-  Sliders, 
-  Zap, 
-  CheckCircle2, 
-  AlertTriangle, 
-  RefreshCw, 
-  ExternalLink,
-  ChevronDown,
-  Building2,
-  Lock,
-  Layers,
-  PhoneCall,
-  Mail,
-  Gauge
+  Search, ShieldCheck, Car, FileText, Sparkles, UserCheck, LogOut, Sliders, Zap, CheckCircle2, AlertTriangle, RefreshCw, ExternalLink, ChevronDown, Building2, Lock, Layers, PhoneCall, Mail, Gauge 
 } from 'lucide-react';
-import { SAMPLE_ADVISOR_VEHICLES } from '../../data/advisorData';
-import { AdvisorVehicleProfile, AdvisorAiDiscrepancy, AdvisorChatMessage, AdvisorServiceVisit } from '../../types';
-import { LeftPaneServiceHistory } from './LeftPaneServiceHistory';
-import { CenterPaneActionCenter } from './CenterPaneActionCenter';
-import { RightPaneUpcomingDeferred } from './RightPaneUpcomingDeferred';
+import { SAMPLE_ADVISOR_VEHICLES } from '../../src/data/advisorData';
+import { AdvisorVehicleProfile, AdvisorAiDiscrepancy, AdvisorChatMessage } from '../../src/types';
+import { LeftPaneServiceHistory } from '../../src/components/AdvisorControlRoom/LeftPaneServiceHistory';
+import { CenterPaneActionCenter } from '../../src/components/AdvisorControlRoom/CenterPaneActionCenter';
+import { RightPaneUpcomingDeferred } from '../../src/components/AdvisorControlRoom/RightPaneUpcomingDeferred';
+import { OverrideAiModal } from '../../src/components/AdvisorControlRoom/OverrideAiModal';
+
 import { OverrideAiModal } from './OverrideAiModal';
 
 interface AdvisorControlRoomProps {
