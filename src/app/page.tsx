@@ -6,7 +6,6 @@ import React, { useState } from 'react';
 import { TierId, VehicleRecord } from '@/types';
 
 // Import components
-import { ThemeSelectorBar } from '@/components/ThemeSelectorBar';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/LandingPage/HeroSection';
 import { LiveAuditSimulator } from '@/components/LandingPage/LiveAuditSimulator';
@@ -19,10 +18,11 @@ import { IntakeWizard } from '@/components/IntakeFlow/IntakeWizard';
 import { HouseholdSweepModal } from '@/components/HouseholdSweep/HouseholdSweepModal';
 import { VehicleVaultModal } from '@/components/VehicleVault/VehicleVaultModal';
 import { ServiceDriveEmergencyModal } from '@/components/ServiceDriveEmergencyModal';
+import { AdvisorControlRoom } from '@/components/AdvisorControlRoom/AdvisorControlRoom';
 import { INITIAL_HOUSEHOLD_VEHICLES } from '@/data/sampleVehicles';
 
 export default function Home() {
-  const [theme, setTheme] = useState<any>('cobalt-dark');
+  const [currentView, setCurrentView] = useState<'landing' | 'control-room'>('landing');
   const [isWizardOpen, setIsWizardOpen] = useState(false);
   const [isSweepOpen, setIsSweepOpen] = useState(false);
   const [isVaultOpen, setIsVaultOpen] = useState(false);
@@ -34,30 +34,44 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-950">
-      <ThemeSelectorBar currentTheme={theme} onSelectTheme={setTheme} />
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white">
       <Header 
         onOpenIntake={() => handleOpenIntake()} 
         onOpenSweep={() => setIsSweepOpen(true)}
         onOpenVault={() => setIsVaultOpen(true)}
         onOpenEmergency={() => setIsEmergencyOpen(true)}
         vaultCount={vehicles.length}
-        currentView="landing"
-        onNavigateHome={() => {}}
+        currentView={currentView as any}
+        onNavigateHome={() => setCurrentView('landing')}
       />
 
-      <main>
-        <HeroSection 
-          onOpenIntake={handleOpenIntake} 
-          onStartVinSweep={() => setIsSweepOpen(true)}
-          onOpenEmergency={() => setIsEmergencyOpen(true)}
-        />
-        <LiveAuditSimulator onOpenFullIntake={handleOpenIntake} />
-        <TierExplainerSection onSelectTierForIntake={(tierId: TierId) => handleOpenIntake()} />
-        <HowItWorks onOpenIntake={handleOpenIntake} />
-        <AdvocateCharter />
-        <TestimonialsAndAudits />
-      </main>
+      {currentView === 'control-room' ? (
+        <AdvisorControlRoom onExitToCustomerApp={() => setCurrentView('landing')} />
+      ) : (
+        <main>
+          {/* Quick Access Control Room Toggle Banner */}
+          <div className="bg-slate-900 border-b border-slate-800 py-2 px-4 text-center text-xs">
+            <span className="text-slate-400">Advisor Portal: </span>
+            <button 
+              onClick={() => setCurrentView('control-room')}
+              className="text-blue-400 hover:text-blue-300 font-semibold underline ml-1"
+            >
+              Launch Control Room &rarr;
+            </button>
+          </div>
+
+          <HeroSection 
+            onOpenIntake={handleOpenIntake} 
+            onStartVinSweep={() => setIsSweepOpen(true)}
+            onOpenEmergency={() => setIsEmergencyOpen(true)}
+          />
+          <LiveAuditSimulator onOpenFullIntake={handleOpenIntake} />
+          <TierExplainerSection onSelectTierForIntake={(tierId: TierId) => handleOpenIntake()} />
+          <HowItWorks onOpenIntake={handleOpenIntake} />
+          <AdvocateCharter />
+          <TestimonialsAndAudits />
+        </main>
+      )}
 
       <Footer />
 
