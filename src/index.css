@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   THEME STYLESHEET FOR ADVISRADVISOR
+   Supports:
+   1. Cobalt & Black (High-Trust Blue Dark) - default
+   2. Clean Editorial Light (Pacific Blue) - light mode
+   3. Midnight Steel & Neon Ice (Stealth Black) - high-contrast pitch black & cyan
+   4. Classic Vault (Green & Slate) - original emerald & deep slate
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   THEME 1: COBALT & BLACK (Default)
+   -------------------------------------------------------------------------- */
+.theme-cobalt-dark {
+  background-color: #030712 !important;
+  color: #f8fafc;
+}
+
+/* --------------------------------------------------------------------------
+   THEME 2: CLEAN EDITORIAL LIGHT (Pacific Blue)
+   -------------------------------------------------------------------------- */
+.theme-clean-light-blue {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.theme-clean-light-blue header,
+.theme-clean-light-blue .bg-slate-950\/90,
+.theme-clean-light-blue .bg-slate-950,
+.theme-clean-light-blue .bg-slate-900,
+.theme-clean-light-blue .bg-slate-900\/90,
+.theme-clean-light-blue .bg-slate-900\/80,
+.theme-clean-light-blue .bg-slate-900\/60,
+.theme-clean-light-blue .bg-slate-900\/40,
+.theme-clean-light-blue .bg-slate-850,
+.theme-clean-light-blue .bg-slate-800,
+.theme-clean-light-blue .bg-slate-800\/80,
+.theme-clean-light-blue .bg-slate-800\/60 {
+  background-color: #ffffff !important;
+}
+
+.theme-clean-light-blue section.bg-slate-900\/60,
+.theme-clean-light-blue .bg-slate-950\/60,
+.theme-clean-light-blue .bg-slate-950\/40 {
+  background-color: #f1f5f9 !important;
+}
+
+.theme-clean-light-blue footer,
+.theme-clean-light-blue footer.bg-slate-950 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.theme-clean-light-blue h1,
+.theme-clean-light-blue h2,
+.theme-clean-light-blue h3,
+.theme-clean-light-blue h4,
+.theme-clean-light-blue .text-white,
+.theme-clean-light-blue .text-slate-100 {
+  color: #0f172a !important;
+}
+
+.theme-clean-light-blue .text-slate-200,
+.theme-clean-light-blue .text-slate-300 {
+  color: #334155 !important;
+}
+
+.theme-clean-light-blue .text-slate-400 {
+  color: #64748b !important;
+}
+
+.theme-clean-light-blue .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+.theme-clean-light-blue .border-slate-900,
+.theme-clean-light-blue .border-slate-800,
+.theme-clean-light-blue .border-slate-800\/80,
+.theme-clean-light-blue .border-slate-800\/60,
+.theme-clean-light-blue .border-slate-700,
+.theme-clean-light-blue .border-slate-700\/80,
+.theme-clean-light-blue .border-slate-700\/70,
+.theme-clean-light-blue .border-slate-700\/60 {
+  border-color: #e2e8f0 !important;
+}
+
+.theme-clean-light-blue input,
+.theme-clean-light-blue select,
+.theme-clean-light-blue textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-clean-light-blue input::placeholder,
+.theme-clean-light-blue textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.theme-clean-light-blue .shadow-xl,
+.theme-clean-light-blue .shadow-2xl,
+.theme-clean-light-blue .shadow-md {
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+}
+
+.theme-clean-light-blue .bg-blue-500\/10,
+.theme-clean-light-blue .bg-blue-500\/15,
+.theme-clean-light-blue .bg-blue-500\/20,
+.theme-clean-light-blue .bg-blue-600\/10,
+.theme-clean-light-blue .bg-blue-600\/20 {
+  background-color: #e0f2fe !important;
+  color: #0284c7 !important;
+}
+
+.theme-clean-light-blue .border-blue-500\/20,
+.theme-clean-light-blue .border-blue-500\/30,
+.theme-clean-light-blue .border-blue-500\/40 {
+  border-color: #bae6fd !important;
+}
+
+/* --------------------------------------------------------------------------
+   THEME 3: STEALTH BLACK & NEON ICE
+   -------------------------------------------------------------------------- */
+.theme-stealth-black-blue {
+  background-color: #000000 !important;
+  color: #f8fafc;
+}
+
+.theme-stealth-black-blue header,
+.theme-stealth-black-blue .bg-slate-950,
+.theme-stealth-black-blue .bg-slate-950\/90,
+.theme-stealth-black-blue .bg-slate-900,
+.theme-stealth-black-blue .bg-slate-900\/90,
+.theme-stealth-black-blue .bg-slate-900\/80,
+.theme-stealth-black-blue .bg-slate-900\/60,
+.theme-stealth-black-blue .bg-slate-850 {
+  background-color: #050507 !important;
+  border-color: #0c4a6e !important;
+}
+
+.theme-stealth-black-blue .text-blue-400,
+.theme-stealth-black-blue .text-blue-300 {
+  color: #38bdf8 !important;
+}
+
+.theme-stealth-black-blue .bg-blue-600,
+.theme-stealth-black-blue .bg-blue-500 {
+  background-color: #0284c7 !important;
+}
+
+.theme-stealth-black-blue .bg-blue-600:hover,
+.theme-stealth-black-blue .bg-blue-500:hover {
+  background-color: #0369a1 !important;
+}
+
+.theme-stealth-black-blue .border-blue-500,
+.theme-stealth-black-blue .border-blue-400,
+.theme-stealth-black-blue .border-blue-500\/30,
+.theme-stealth-black-blue .border-blue-500\/40 {
+  border-color: #0284c7 !important;
+}
+
+.theme-stealth-black-blue .bg-blue-500\/10,
+.theme-stealth-black-blue .bg-blue-500\/15,
+.theme-stealth-black-blue .bg-blue-500\/20 {
+  background-color: rgba(56, 189, 248, 0.12) !important;
+  color: #38bdf8 !important;
+}
+
+/* --------------------------------------------------------------------------
+   THEME 4: CLASSIC VAULT (Emerald & Slate)
+   -------------------------------------------------------------------------- */
+.theme-classic-emerald {
+  background-color: #020617 !important;
+}
+
+.theme-classic-emerald .text-blue-400,
+.theme-classic-emerald .text-blue-300,
+.theme-classic-emerald .text-blue-500 {
+  color: #10b981 !important;
+}
+
+.theme-classic-emerald .bg-blue-600,
+.theme-classic-emerald .bg-blue-500 {
+  background-color: #059669 !important;
+}
+
+.theme-classic-emerald .bg-blue-600:hover,
+.theme-classic-emerald .bg-blue-500:hover {
+  background-color: #047857 !important;
+}
+
+.theme-classic-emerald .border-blue-500,
+.theme-classic-emerald .border-blue-400,
+.theme-classic-emerald .border-blue-500\/30,
+.theme-classic-emerald .border-blue-500\/40,
+.theme-classic-emerald .border-blue-500\/20 {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+}
+
+.theme-classic-emerald .bg-blue-500\/10,
+.theme-classic-emerald .bg-blue-500\/15,
+.theme-classic-emerald .bg-blue-500\/20 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  color: #34d399 !important;
+}
+
+.theme-classic-emerald .ring-blue-400\/50,
+.theme-classic-emerald .ring-blue-500\/50 {
+  --tw-ring-color: rgba(16, 185, 129, 0.5) !important;
+}
+
+.theme-classic-emerald .bg-gradient-to-r.from-blue-600\/30.to-indigo-600\/30 {
+  background-image: linear-gradient(to right, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.25)) !important;
+}

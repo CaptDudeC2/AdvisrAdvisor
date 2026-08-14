@@ -1,23 +1,21 @@
-'use client';
-
 import React, { useState, useEffect } from 'react';
-import { Header } from '../src/components/Header';
-import { ThemeSelectorBar, ThemeKey } from '../src/components/ThemeSelectorBar';
-import { HeroSection } from '../src/components/LandingPage/HeroSection';
-import { LiveAuditSimulator } from '../src/components/LandingPage/LiveAuditSimulator';
-import { TierExplainerSection } from '../src/components/LandingPage/TierExplainerSection';
-import { HowItWorks } from '../src/components/LandingPage/HowItWorks';
-import { AdvocateCharter } from '../src/components/LandingPage/AdvocateCharter';
-import { TestimonialsAndAudits } from '../src/components/LandingPage/TestimonialsAndAudits';
-import { Footer } from '../src/components/Footer';
-import { IntakeWizard } from '../src/components/IntakeFlow/IntakeWizard';
-import { HouseholdSweepModal } from '../src/components/HouseholdSweep/HouseholdSweepModal';
-import { VehicleVaultModal } from '../src/components/VehicleVault/VehicleVaultModal';
-import { AddToVaultModal } from '../src/components/VehicleVault/AddToVaultModal';
-import { ServiceDriveEmergencyModal } from '../src/components/ServiceDriveEmergencyModal';
-import { AdvisorControlRoom } from '../src/components/AdvisorControlRoom/AdvisorControlRoom';
-import { INITIAL_HOUSEHOLD_VEHICLES } from '../src/data/sampleVehicles';
-import { TierId, VehicleRecord, EstimateAuditResult } from '../src/types';
+import { Header } from './components/Header';
+import { ThemeSelectorBar, ThemeKey } from './components/ThemeSelectorBar';
+import { HeroSection } from './components/LandingPage/HeroSection';
+import { LiveAuditSimulator } from './components/LandingPage/LiveAuditSimulator';
+import { TierExplainerSection } from './components/LandingPage/TierExplainerSection';
+import { HowItWorks } from './components/LandingPage/HowItWorks';
+import { AdvocateCharter } from './components/LandingPage/AdvocateCharter';
+import { TestimonialsAndAudits } from './components/LandingPage/TestimonialsAndAudits';
+import { Footer } from './components/Footer';
+import { IntakeWizard } from './components/IntakeFlow/IntakeWizard';
+import { HouseholdSweepModal } from './components/HouseholdSweep/HouseholdSweepModal';
+import { VehicleVaultModal } from './components/VehicleVault/VehicleVaultModal';
+import { AddToVaultModal } from './components/VehicleVault/AddToVaultModal';
+import { ServiceDriveEmergencyModal } from './components/ServiceDriveEmergencyModal';
+import { AdvisorControlRoom } from './components/AdvisorControlRoom/AdvisorControlRoom';
+import { INITIAL_HOUSEHOLD_VEHICLES } from './data/sampleVehicles';
+import { TierId, VehicleRecord, EstimateAuditResult } from './types';
 
 export default function App() {
   // Theme State: defaults to cobalt-dark (Blue and Black)
