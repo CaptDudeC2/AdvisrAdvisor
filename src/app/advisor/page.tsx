@@ -4,12 +4,15 @@ import React, { useState } from 'react';
 import { 
   Search, ShieldCheck, Car, FileText, Sparkles, UserCheck, LogOut, Sliders, Zap, CheckCircle2, AlertTriangle, RefreshCw, ExternalLink, ChevronDown, Building2, Lock, Layers, PhoneCall, Mail, Gauge 
 } from 'lucide-react';
-import { SAMPLE_ADVISOR_VEHICLES } from '../../src/data/advisorData';
-import { AdvisorVehicleProfile, AdvisorAiDiscrepancy, AdvisorChatMessage } from '../../src/types';
-import { LeftPaneServiceHistory } from '../../src/components/AdvisorControlRoom/LeftPaneServiceHistory';
-import { CenterPaneActionCenter } from '../../src/components/AdvisorControlRoom/CenterPaneActionCenter';
-import { RightPaneUpcomingDeferred } from '../../src/components/AdvisorControlRoom/RightPaneUpcomingDeferred';
-import OverrideAiModal from '@/components/AdvisorControlRoom/OverrideAiModal';
+// Replace lines 7-12 with these clean absolute imports:
+import { SAMPLE_ADVISOR_VEHICLES } from '@/data/advisorData';
+import { AdvisorVehicleProfile, AdvisorAiDiscrepancy, AdvisorChatMessage } from '@/types';
+import { LeftPaneServiceHistory } from '@/components/AdvisorControlRoom/LeftPaneServiceHistory';
+import { CenterPaneActionCenter } from '@/components/AdvisorControlRoom/CenterPaneActionCenter';
+import { RightPaneUpcomingDeferred } from '@/components/AdvisorControlRoom/RightPaneUpcomingDeferred';
+import { OverrideAiModal } from '@/components/AdvisorControlRoom/OverrideAiModal';
+
+
 
 
 interface AdvisorControlRoomProps {

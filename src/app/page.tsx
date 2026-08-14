@@ -9,13 +9,14 @@ import { AdvisorVehicleProfile, AdvisorAiDiscrepancy, AdvisorChatMessage } from 
 import { LeftPaneServiceHistory } from '../../src/components/AdvisorControlRoom/LeftPaneServiceHistory';
 import { CenterPaneActionCenter } from '../../src/components/AdvisorControlRoom/CenterPaneActionCenter';
 import { RightPaneUpcomingDeferred } from '../../src/components/AdvisorControlRoom/RightPaneUpcomingDeferred';
-import { OverrideAiModal } from '../../src/components/AdvisorControlRoom/OverrideAiModal';
+// Replace lines 12-18 with these clean absolute imports:
+import { OverrideAiModal } from '@/components/AdvisorControlRoom/OverrideAiModal';
 
-import { AddToVaultModal } from '../src/components/VehicleVault/AddToVaultModal';
-import { ServiceDriveEmergencyModal } from '../src/components/ServiceDriveEmergencyModal';
-import { AdvisorControlRoom } from '../src/components/AdvisorControlRoom/AdvisorControlRoom';
-import { INITIAL_HOUSEHOLD_VEHICLES } from '../src/data/sampleVehicles';
-import { TierId, VehicleRecord, EstimateAuditResult } from '../src/types';
+import { AddToVaultModal } from '@/components/VehicleVault/AddToVaultModal';
+import { ServiceDriveEmergencyModal } from '@/components/ServiceDriveEmergencyModal';
+import { AdvisorControlRoom } from '@/components/AdvisorControlRoom/AdvisorControlRoom';
+import { INITIAL_HOUSEHOLD_VEHICLES } from '@/data/sampleVehicles';
+import { TierId, VehicleRecord, EstimateAuditResult } from '@/types';
 
 export default function App() {
   // Theme State: defaults to cobalt-dark (Blue and Black)
