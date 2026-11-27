@@ -141,7 +141,7 @@ export const AdvisorControlRoom: React.FC<AdvisorControlRoomProps> = ({
         return {
           ...d,
           status: 'CONFIRMED',
-          advisorSignature: 'Dave Miller, ASE Master Tech #ASE-49021',
+          advisorSignature: 'AdvisrAdvisor Advocate',
           updatedAt: new Date().toLocaleTimeString()
         };
       }
@@ -152,14 +152,14 @@ export const AdvisorControlRoom: React.FC<AdvisorControlRoomProps> = ({
       const certifyMsg: AdvisorChatMessage = {
         id: `cert-${Date.now()}`,
         sender: 'advisor',
-        senderName: 'Master Tech Dave (ASE-L1)',
+        senderName: 'Your Advocate',
         badge: 'Licensed Master Tech',
-        text: `Certified Finding: We verified with Mitchell OEM labor manual that "${target.lineItemDescription}" was overbilled by $${target.totalDiscrepancy.toFixed(2)}. This item is confirmed for client dispute.`,
+        text: `Confirmed Finding: Our review shows that "${target.lineItemDescription}" was overbilled by $${target.totalDiscrepancy.toFixed(2)}. This item is confirmed for client dispute.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         isRead: true,
         actionCard: {
           type: 'DISPUTE_SAVINGS',
-          title: 'Labor Overcharge Certified',
+          title: 'Labor Overcharge Confirmed',
           amount: target.totalDiscrepancy,
           details: target.auditExplanation
         }
@@ -173,7 +173,7 @@ export const AdvisorControlRoom: React.FC<AdvisorControlRoomProps> = ({
     const newMsg: AdvisorChatMessage = {
       id: `adv-${Date.now()}`,
       sender: 'advisor',
-      senderName: 'Master Tech Dave (ASE-L1)',
+      senderName: 'Your Advocate',
       badge: 'Licensed Master Tech',
       text,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
@@ -197,12 +197,12 @@ export const AdvisorControlRoom: React.FC<AdvisorControlRoomProps> = ({
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="font-mono font-bold text-emerald-400">ADVISOR CONTROL ROOM v3.8</span>
             <span className="text-slate-600">•</span>
-            <span>Master Tech Workstation (ASE-L1 Certified Direct Ingress)</span>
+            <span>Advisor Workstation</span>
           </div>
 
           <div className="flex items-center gap-3">
             <span className="hidden md:inline font-mono text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
-              Chilton / Mitchell 1 API Connected
+              Sample Data
             </span>
             <button
               onClick={onExitToCustomerApp}

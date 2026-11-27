@@ -12,10 +12,8 @@ import { LiveAuditSimulator } from '@/components/LandingPage/LiveAuditSimulator'
 import { TierExplainerSection } from '@/components/LandingPage/TierExplainerSection';
 import { HowItWorks } from '@/components/LandingPage/HowItWorks';
 import { AdvocateCharter } from '@/components/LandingPage/AdvocateCharter';
-import { TestimonialsAndAudits } from '@/components/LandingPage/TestimonialsAndAudits';
 import { Footer } from '@/components/Footer';
 import { IntakeWizard } from '@/components/IntakeFlow/IntakeWizard';
-import { HouseholdSweepModal } from '@/components/HouseholdSweep/HouseholdSweepModal';
 import { VehicleVaultModal } from '@/components/VehicleVault/VehicleVaultModal';
 import { ServiceDriveEmergencyModal } from '@/components/ServiceDriveEmergencyModal';
 import { AdvisorControlRoom } from '@/components/AdvisorControlRoom/AdvisorControlRoom';
@@ -24,7 +22,6 @@ import { INITIAL_HOUSEHOLD_VEHICLES } from '@/data/sampleVehicles';
 export default function Home() {
   const [currentView, setCurrentView] = useState<'landing' | 'control-room'>('landing');
   const [isWizardOpen, setIsWizardOpen] = useState(false);
-  const [isSweepOpen, setIsSweepOpen] = useState(false);
   const [isVaultOpen, setIsVaultOpen] = useState(false);
   const [isEmergencyOpen, setIsEmergencyOpen] = useState(false);
   const [vehicles, setVehicles] = useState<VehicleRecord[]>(INITIAL_HOUSEHOLD_VEHICLES);
@@ -37,7 +34,7 @@ export default function Home() {
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white">
       <Header 
         onOpenIntake={() => handleOpenIntake()} 
-        onOpenSweep={() => setIsSweepOpen(true)}
+        onOpenSweep={() => handleOpenIntake()}
         onOpenVault={() => setIsVaultOpen(true)}
         onOpenEmergency={() => setIsEmergencyOpen(true)}
         vaultCount={vehicles.length}
@@ -62,14 +59,13 @@ export default function Home() {
 
           <HeroSection 
             onOpenIntake={handleOpenIntake} 
-            onStartVinSweep={() => setIsSweepOpen(true)}
+            onStartVinSweep={() => handleOpenIntake()}
             onOpenEmergency={() => setIsEmergencyOpen(true)}
           />
           <LiveAuditSimulator onOpenFullIntake={handleOpenIntake} />
           <TierExplainerSection onSelectTierForIntake={(tierId: TierId) => handleOpenIntake()} />
           <HowItWorks onOpenIntake={handleOpenIntake} />
           <AdvocateCharter />
-          <TestimonialsAndAudits />
         </main>
       )}
 
@@ -80,19 +76,12 @@ export default function Home() {
         <IntakeWizard onClose={() => setIsWizardOpen(false)} />
       )}
 
-      {isSweepOpen && (
-        <HouseholdSweepModal 
-          onClose={() => setIsSweepOpen(false)} 
-          onSelectVehicleForAudit={(vehicle) => handleOpenIntake()}
-        />
-      )}
-
       {isVaultOpen && (
         <VehicleVaultModal 
           onClose={() => setIsVaultOpen(false)} 
           vehicles={vehicles}
           onSelectVehicleForAudit={(vehicle) => handleOpenIntake()}
-          onOpenSweep={() => setIsSweepOpen(true)}
+          onOpenSweep={() => handleOpenIntake()}
         />
       )}
 

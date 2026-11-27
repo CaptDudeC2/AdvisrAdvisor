@@ -5,7 +5,7 @@ export const SAMPLE_ESTIMATES: SampleEstimate[] = [
   {
     id: 'sample-1',
     title: 'Dealership 60,000-Mile Recommended Service & Brakes',
-    shopName: 'Metro West Honda & Acura Service Center',
+    shopName: 'Sample Honda Dealer',
     shopType: 'Dealership',
     vehicle: {
       year: 2021,
@@ -50,9 +50,9 @@ export const SAMPLE_ESTIMATES: SampleEstimate[] = [
         recommendation: 'DISPUTE_LABOR',
         tierStatus: 'APPROVED_BY_TIER',
         potentialSavings: 250.00,
-        auditorNote: 'Brake pads measured at 2.5mm (active safety item). However, Mitchell standard book labor time is 1.3 hours. Shop is billing 2.4 hours ($187 labor overcharge).',
+        auditorNote: 'Brake pads measured at 2.5mm (active safety item). However, this job typically takes about 1.3 hours. Shop is billing 2.4 hours ($187 labor overcharge).',
         isCriticalSafety: true,
-        oemReferenceCode: 'MITCHELL-BRK-401',
+        oemReferenceCode: 'LABOR-BRK-01',
         includedInTiers: ['tier-1', 'tier-2', 'tier-3']
       },
       {
@@ -69,7 +69,7 @@ export const SAMPLE_ESTIMATES: SampleEstimate[] = [
         recommendation: 'UNNECESSARY_UPSELL',
         tierStatus: 'REJECTED_BY_TIER',
         potentialSavings: 345.00,
-        auditorNote: 'Non-OEM aftermarket chemical flush package. Honda Service Bulletin 15-024 explicitly warns against chemical flushes without verified fuel injector trouble codes (DTC P0300).',
+        auditorNote: 'Non-OEM aftermarket chemical flush package. Not on the Honda maintenance schedule, and there are no fuel injector trouble codes to justify it.',
         isCriticalSafety: false,
         oemReferenceCode: 'DEALER-ADD-909',
         includedInTiers: ['tier-3']
@@ -136,7 +136,7 @@ export const SAMPLE_ESTIMATES: SampleEstimate[] = [
   {
     id: 'sample-2',
     title: 'BMW European Specialty Shop 60k Inspection & Leaks',
-    shopName: 'Bavarian Performance & Autowerks',
+    shopName: 'Sample Independent Shop',
     shopType: 'Independent Mechanic',
     vehicle: {
       year: 2019,
@@ -229,7 +229,7 @@ export const SAMPLE_ESTIMATES: SampleEstimate[] = [
   {
     id: 'sample-3',
     title: 'Quick Lube / National Franchise Upsell Package',
-    shopName: 'SpeedyLube Plus & Tire Center',
+    shopName: 'Sample Quick Lube',
     shopType: 'National Franchise',
     vehicle: {
       year: 2020,
@@ -418,7 +418,7 @@ export function computeAuditForTier(estimate: SampleEstimate, tierId: TierId): E
   if (laborDisputes.length > 0) {
     const itemNames = laborDisputes.map(i => i.itemDescription).join(' and ');
     counterScript.push(
-      `"I am approving the ${itemNames}, but Mitchell / AllData standard book time for this exact vehicle is ${fairLaborHoursTotal.toFixed(1)} hours. Please adjust the quoted labor of ${quotedLaborHoursTotal.toFixed(1)} hours down to standard factory book time."`
+      `"I am approving the ${itemNames}, but ${quotedLaborHoursTotal.toFixed(1)} hours of labor looks high. This job typically takes about ${fairLaborHoursTotal.toFixed(1)} hours. Can you walk me through how you got to that number?"`
     );
   }
 

@@ -55,7 +55,7 @@ export const TIERS_DATA: Record<TierId, TierDefinition> = {
       'Proprietary dealer-branded "value packages" not listed in OEM manual',
       'Premature fluid replacements scheduled 30,000 miles before factory recommendation',
       'Aftermarket additives and chemical treatments prohibited by OEM warranties',
-      'Labor hours quoted above AllData / Mitchell 1 standard warranty book times'
+      'Labor hours well above what the job typically takes'
     ],
     estimatedCostReduction: '25% – 45% off dealership quotes',
     badgeColor: 'blue',

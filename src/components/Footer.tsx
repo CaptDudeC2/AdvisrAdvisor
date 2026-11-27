@@ -20,11 +20,6 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
               Intelligent Tech. Human Advocacy. An independent automotive advocacy platform dedicated to eliminating repair overcharging and protecting vehicle owners.
             </p>
-            <div className="flex items-center gap-3 pt-1 text-[11px] text-slate-500">
-              <span>Cloudflare DNS Protected</span>
-              <span>•</span>
-              <span>FastAPI &amp; Supabase Vault</span>
-            </div>
           </div>
 
           {/* Advocacy Standards */}
@@ -36,8 +31,7 @@ export const Footer: React.FC = () => {
               <li>Tier 1: Minimalist Reactive</li>
               <li>Tier 2: Strict OEM Schedule</li>
               <li>Tier 3: Optimal Longevity</li>
-              <li>Mitchell 1 Labor Benchmarking</li>
-              <li>AllData Standard Times</li>
+              <li>Human-Reviewed Labor Checks</li>
             </ul>
           </div>
 
@@ -49,8 +43,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-1.5 text-xs text-slate-400">
               <li>Zero-Commission Policy</li>
               <li>No Shop Referral Fees</li>
-              <li>Encrypted Vehicle Vault</li>
-              <li>Household Vehicle Sweep</li>
+              <li>Private Vehicle Vault</li>
               <li>Terms of Service &amp; Privacy</li>
             </ul>
           </div>
@@ -58,10 +51,9 @@ export const Footer: React.FC = () => {
 
         {/* Disclaimer & Copyright */}
         <div className="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 text-left">
-          <p>© {new Date().getFullYear()} AdvisrAdvisor Inc. All rights reserved. Operating as an independent customer advocate and ally.</p>
+          <p>© {new Date().getFullYear()} AdvisrAdvisor. All rights reserved. Operating as an independent customer advocate and ally.</p>
           <div className="flex items-center gap-4">
-            <span>256-bit SSL Security</span>
-            <span>Mitchell 1™ / AllData™ Calibrated</span>
+            <span>Audits are advice, not a guarantee. Safety items are always flagged.</span>
           </div>
         </div>
 

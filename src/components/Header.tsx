@@ -43,13 +43,6 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>Advisor Control Room</span>
               </button>
             )}
-            <span className="hidden md:flex items-center gap-1.5">
-              <Building2 className="w-3.5 h-3.5 text-slate-500" />
-              Mitchell 1 & AllData OEM Benchmarked
-            </span>
-            <span className="text-slate-200 font-mono text-[11px] bg-slate-800 px-2 py-0.5 rounded border border-slate-700 hidden sm:inline">
-              Cloudflare DNS Protected
-            </span>
           </div>
         </div>
       </div>
@@ -83,19 +76,6 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Center/Right Action Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Household Sweep Hook Button */}
-          <button
-            id="nav-household-sweep-btn"
-            onClick={onOpenSweep}
-            className="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-medium text-slate-200 transition-all hover:border-blue-500/40 hover:text-white"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-            <span>Household VIN Sweep</span>
-            <span className="bg-blue-500/20 text-blue-300 text-[10px] px-1.5 py-0.2 rounded font-bold">
-              Free CARFAX
-            </span>
-          </button>
-
           {/* Vehicle Vault Button */}
           <button
             id="nav-vehicle-vault-btn"

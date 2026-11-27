@@ -25,11 +25,11 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenIntake }) => {
     },
     {
       number: '03',
-      title: 'Real-Time Labor & Parts Benchmark',
-      subtitle: 'Mitchell 1 / AllData Book Time Scraped',
-      description: 'Our engine audits every line item against standard flat-rate labor times, OEM parts list prices, and checks for duplicate labor overlap.',
+      title: 'Line-by-Line Review',
+      subtitle: 'Checked by a real service professional',
+      description: 'Every line item is checked against your OEM schedule and your service history, with padded labor, inflated parts and duplicate work flagged.',
       icon: ShieldCheck,
-      badge: 'Under 60 Seconds'
+      badge: 'Human Reviewed'
     },
     {
       number: '04',
@@ -37,7 +37,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenIntake }) => {
       subtitle: 'Never negotiate blindly again',
       description: 'Hand the revised advocate itemization or read our exact technical pushback script to your service advisor to get the fair price authorized.',
       icon: MessageSquare,
-      badge: 'Guaranteed Confidence'
+      badge: 'Respectful, Not Combative'
     }
   ];
 

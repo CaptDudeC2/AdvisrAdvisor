@@ -44,7 +44,7 @@ export const AdvocateCharter: React.FC = () => {
                   <span>Objective Labor Times</span>
                 </div>
                 <p className="text-xs text-slate-400">
-                  Audited against Mitchell 1 & AllData standard warranty flat-rate guides.
+                  Labor is checked against what the job typically takes, by someone who has written thousands of repair orders.
                 </p>
               </div>
 
@@ -64,7 +64,7 @@ export const AdvocateCharter: React.FC = () => {
                   <span>Data Vault Privacy</span>
                 </div>
                 <p className="text-xs text-slate-400">
-                  Your repair history and CARFAX data stay encrypted in your private Vehicle Vault.
+                  Your repair history stays private and is never sold or shared with shops.
                 </p>
               </div>
             </div>
@@ -91,7 +91,7 @@ export const AdvocateCharter: React.FC = () => {
 
               <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
                 <span className="font-mono text-blue-400 font-bold">AdvisrAdvisor Core Protocol</span>
-                <span>FastAPI + Supabase Vault</span>
+                <span>Independent Advocate</span>
               </div>
             </div>
           </div>

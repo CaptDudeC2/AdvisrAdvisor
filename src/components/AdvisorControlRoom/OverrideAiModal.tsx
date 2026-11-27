@@ -22,7 +22,7 @@ export const OverrideAiModal: React.FC<OverrideAiModalProps> = ({
     discrepancy ? discrepancy.quotedLaborHours.toString() : '1.8'
   );
   const [advisorNotes, setAdvisorNotes] = useState<string>('Visual inspection of technician video confirmed severe road salt corrosion on caliper bracket mounting bolts.');
-  const [techSignature, setTechSignature] = useState<string>('Dave Miller, ASE Master Tech #ASE-49021');
+  const [techSignature, setTechSignature] = useState<string>('AdvisrAdvisor Advocate');
 
   if (!isOpen || !discrepancy) return null;
 
@@ -101,7 +101,7 @@ export const OverrideAiModal: React.FC<OverrideAiModalProps> = ({
                   <p className="text-sm font-mono font-bold text-red-400">{discrepancy.quotedLaborHours} hrs</p>
                 </div>
                 <div className="p-2 rounded-lg bg-slate-900 border border-slate-800">
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">OEM Mitchell Standard</span>
+                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Typical Labor</span>
                   <p className="text-sm font-mono font-bold text-emerald-400">{discrepancy.oemBenchmarkHours} hrs</p>
                 </div>
                 <div className="p-2 rounded-lg bg-slate-900 border border-slate-800">
@@ -172,7 +172,7 @@ export const OverrideAiModal: React.FC<OverrideAiModalProps> = ({
             {/* Detailed Technical Notes */}
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-slate-200">
-                Technical Justification &amp; Notes (Appears on Customer Certified Report)
+                Technical Justification &amp; Notes (Appears on Customer Report)
               </label>
               <textarea
                 rows={3}
