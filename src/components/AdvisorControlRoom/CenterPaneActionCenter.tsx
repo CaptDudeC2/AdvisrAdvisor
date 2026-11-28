@@ -258,7 +258,7 @@ export const CenterPaneActionCenter: React.FC<CenterPaneActionCenterProps> = ({
               <div className="border-b-2 border-slate-900 pb-3 flex justify-between items-start">
                 <div>
                   <h3 className="font-extrabold text-sm uppercase tracking-wider text-slate-950">
-                    {vehicle.activeShopName || 'Metro West Honda & Acura'}
+                    {vehicle.activeShopName || 'Sample Honda Dealer'}
                   </h3>
                   <p className="text-[10px] text-slate-600">8940 Automotive Parkway • Service Drive #2</p>
                   <p className="text-[10px] text-slate-600 font-mono">BAR Registration #CA-294801 • EPA ID #09412</p>
@@ -332,7 +332,7 @@ export const CenterPaneActionCenter: React.FC<CenterPaneActionCenterProps> = ({
                       PRO-CLEAN FUEL INJECTOR &amp; INDUCTION FLUSH
                       {showOcrBoxes && (
                         <span className="block text-[9px] text-amber-700 font-bold">
-                          ⚠️ OCR FLAG: Honda TSB 15-024 Non-OEM Flush ($258.00 Upsell)
+                          ⚠️ OCR FLAG: Non-OEM Flush ($258.00 Upsell)
                         </span>
                       )}
                     </td>
@@ -417,7 +417,7 @@ export const CenterPaneActionCenter: React.FC<CenterPaneActionCenterProps> = ({
                     <h4 className="text-sm font-bold text-white mt-1">
                       Front Left Caliper &amp; Rotor Micrometer Inspection
                     </h4>
-                    <p className="text-xs text-slate-300">Tech: Steve M. • Metro West Bay #4</p>
+                    <p className="text-xs text-slate-300">Tech: Steve M. • Bay #4</p>
                   </div>
                 </div>
 
@@ -565,7 +565,7 @@ export const CenterPaneActionCenter: React.FC<CenterPaneActionCenterProps> = ({
           {/* Quick Action Statistics */}
           <div className="flex items-center gap-3 text-xs">
             <span className="text-slate-400 hidden sm:inline">
-              Flags: <strong className="text-red-400">{pendingReviewCount} Pending</strong> • <strong className="text-emerald-400">{confirmedCount} Certified</strong> • <strong className="text-amber-400">{overriddenCount} Overridden</strong>
+              Flags: <strong className="text-red-400">{pendingReviewCount} Pending</strong> • <strong className="text-emerald-400">{confirmedCount} Confirmed</strong> • <strong className="text-amber-400">{overriddenCount} Overridden</strong>
             </span>
             <div className="flex items-center gap-1 text-emerald-400 font-mono font-bold bg-emerald-950/60 border border-emerald-500/30 px-2.5 py-1 rounded-lg">
               <DollarSign className="w-3.5 h-3.5" />
@@ -633,7 +633,7 @@ export const CenterPaneActionCenter: React.FC<CenterPaneActionCenterProps> = ({
                         {isConfirmed && (
                           <span className="text-[11px] text-emerald-400 font-bold flex items-center gap-1">
                             <CheckCircle2 className="w-3.5 h-3.5" />
-                            Confirmed &amp; Human Certified by Master Tech
+                            Confirmed by Your Advocate
                           </span>
                         )}
                         {isOverridden && (
@@ -715,7 +715,7 @@ export const CenterPaneActionCenter: React.FC<CenterPaneActionCenterProps> = ({
                         }`}
                       >
                         <CheckCircle2 className="w-3.5 h-3.5" />
-                        <span>{isConfirmed ? 'Certified & Logged' : 'Confirm Findings'}</span>
+                        <span>{isConfirmed ? 'Confirmed & Logged' : 'Confirm Findings'}</span>
                       </button>
                     </div>
                   </div>
@@ -736,15 +736,15 @@ export const CenterPaneActionCenter: React.FC<CenterPaneActionCenterProps> = ({
               <span className="text-slate-400 font-bold text-[10px] uppercase shrink-0">Quick Macros:</span>
               <button
                 onClick={() => handleQuickCannedMacro(
-                  `Christopher, our master technician reviewed your RO against the Mitchell OEM standard. Your front brake pads are worn (2.4mm), so we recommend approving the pads. However, the shop is overcharging by 1.2 hrs of labor ($222) and the $258 fuel flush is completely unnecessary per Honda Bulletin 15-024.`
+                  `Christopher, your advocate reviewed your estimate. Your front brake pads are worn (2.4mm), so we recommend approving the pads. However, the shop is overcharging by 1.2 hrs of labor ($222) and the $258 fuel flush is not on the Honda maintenance schedule at this mileage.`
                 )}
                 className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 whitespace-nowrap border border-slate-700 font-medium cursor-pointer"
               >
-                + Send Certified Audit Summary
+                + Send Audit Summary
               </button>
               <button
                 onClick={() => handleQuickCannedMacro(
-                  `Here is your exact word-for-word counter script for the service writer: "I authorized the front brake pads, but Mitchell book time is 1.2 hours. Please adjust the labor charge from 2.4 hrs to 1.2 hrs. Also, please remove the fuel flush chemical treatment as my vehicle has no misfire codes."`
+                  `Here is your exact word-for-word counter script for the service writer: "I authorized the front brake pads, but 2.4 hours of labor looks high. This job typically takes about 1.2 hours. Can you walk me through the labor? Also, please remove the fuel flush chemical treatment as my vehicle has no misfire codes."`
                 )}
                 className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 whitespace-nowrap border border-slate-700 font-medium cursor-pointer"
               >

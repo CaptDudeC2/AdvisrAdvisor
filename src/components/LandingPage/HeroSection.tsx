@@ -82,7 +82,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Subhead with clear value proposition */}
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-              We audit dealer and mechanic estimates against <strong className="text-white">OEM labor book times</strong> and your chosen <strong className="text-blue-400">preference tier</strong> to eliminate labor padding, inflated parts, and predatory upsells.
+              We audit dealer and mechanic estimates against <strong className="text-white">OEM maintenance schedules</strong>, real-world labor experience, and your chosen <strong className="text-blue-400">preference tier</strong> to eliminate labor padding, inflated parts, and predatory upsells.
             </p>
 
             {/* Primary Hook Container: Frictionless VIN & Household Vehicle Sweep */}
@@ -91,12 +91,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-blue-400" />
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-200">
-                    Primary Onboarding Hook
+                    Start an Audit
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 text-xs text-blue-400 font-semibold bg-blue-950/60 px-2 py-0.5 rounded border border-blue-800/40">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Free CARFAX for Up to 10 Household Vehicles</span>
+                  <span>Human-reviewed audits</span>
                 </div>
               </div>
 
@@ -154,7 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         <span>The tech you need, the human you trust.</span>
                       </p>
                       <span className="text-[11px] text-slate-400 font-medium hidden sm:inline">
-                        Instant OEM Labor Audit
+                        Human-Reviewed Audit
                       </span>
                     </div>
 
@@ -275,10 +275,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="mt-4 pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-xs text-slate-400 gap-2">
                 <div className="flex items-center gap-1.5">
                   <Lock className="w-3.5 h-3.5 text-slate-500" />
-                  <span>256-bit encrypted • Zero sales calls</span>
+                  <span>Zero sales calls</span>
                 </div>
                 <div className="flex items-center gap-1 text-blue-400 font-medium">
-                  <span>Auditing 100% of major vehicle makes</span>
+                  <span>Reviewed by a real service professional</span>
                 </div>
               </div>
             </div>
@@ -288,8 +288,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <div className="text-left">
-                  <p className="text-xs font-bold text-white">Labor Book Benchmarked</p>
-                  <p className="text-[11px] text-slate-400">Mitchell1 & AllData standard warranty hours</p>
+                  <p className="text-xs font-bold text-white">Labor Time Checked</p>
+                  <p className="text-[11px] text-slate-400">Flags labor that looks padded for the job</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -302,8 +302,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
                 <Clock className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <div className="text-left">
-                  <p className="text-xs font-bold text-white">Under 90 Seconds</p>
-                  <p className="text-[11px] text-slate-400">Get pushback script while standing in the drive</p>
+                  <p className="text-xs font-bold text-white">Plain-English Verdict</p>
+                  <p className="text-[11px] text-slate-400">Plus a respectful script for the service drive</p>
                 </div>
               </div>
             </div>
@@ -366,7 +366,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                      Live Estimate Audit Result
+                      Example Audit (Illustration)
                     </span>
                   </div>
                   <span className="bg-red-500/10 text-red-400 text-xs font-bold px-2 py-0.5 rounded border border-red-500/20">
@@ -378,7 +378,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="space-y-1">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-semibold text-white">2021 Honda CR-V AWD (61.4k mi)</span>
-                    <span className="text-slate-400 font-mono text-[11px]">Metro Honda Center</span>
+                    <span className="text-slate-400 font-mono text-[11px]">Example Shop</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs">
                     <span className="bg-slate-800 text-slate-300 px-2 py-0.5 rounded text-[11px] border border-slate-700">
@@ -423,7 +423,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         <span className="font-bold text-slate-200">Front Brake Pads & Rotors Labor</span>
                       </div>
                       <p className="text-[11px] text-amber-300 mt-0.5">
-                        Labor Padded: Quoted 2.4 hrs vs Mitchell Book 1.3 hrs.
+                        Labor looks high: quoted 2.4 hrs for a job that typically takes about 1.3.
                       </p>
                     </div>
                     <span className="font-mono font-bold text-amber-400 shrink-0">-$187</span>
@@ -437,7 +437,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     Service Drive Pushback Script:
                   </p>
                   <p className="text-slate-400 italic text-[11px] leading-relaxed">
-                    &quot;Please remove the $345 fuel decarb flush as my independent advocate guidelines follow OEM specifications, and adjust the front brake labor from 2.4 to the standard Mitchell 1.3 book hours.&quot;
+                    &quot;Please remove the $345 fuel decarb flush as my independent advocate guidelines follow OEM specifications, and can you walk me through how the front brake labor came to 2.4 hours? That looks high for this job.&quot;
                   </p>
                 </div>
 

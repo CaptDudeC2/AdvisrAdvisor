@@ -20,7 +20,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
     customerTier: 'tier-2',
     membershipActiveSince: 'March 2023',
     liveServiceDriveStatus: 'CURRENTLY_AT_SHOP',
-    activeShopName: 'Metro West Honda & Acura Service Center',
+    activeShopName: 'Sample Honda Dealer',
     rawInvoicePages: 2,
     serviceVisits: [
       {
@@ -28,7 +28,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         roNumber: 'RO-94812-H',
         date: '2024-06-12',
         mileage: 38450,
-        shopName: 'Metro West Honda Service Center',
+        shopName: 'Sample Honda Dealer',
         shopType: 'Dealership',
         advisorName: 'Derek Simmons (SA #409)',
         technicianId: 'Tech 18 (Master Cert)',
@@ -133,7 +133,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         roNumber: 'RO-77312-C',
         date: '2023-05-04',
         mileage: 19800,
-        shopName: 'Metro West Honda Service Center',
+        shopName: 'Sample Honda Dealer',
         shopType: 'Dealership',
         advisorName: 'Sarah Lin (SA #210)',
         totalCost: 185.00,
@@ -176,7 +176,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         roNumber: 'RO-69104-A',
         date: '2022-10-15',
         mileage: 9850,
-        shopName: 'Metro West Honda Service Center',
+        shopName: 'Sample Honda Dealer',
         shopType: 'Dealership',
         advisorName: 'Derek Simmons (SA #409)',
         totalCost: 0.00,
@@ -189,7 +189,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
           {
             id: 'li-08',
             partNumber: 'HONDA-PASS-10K',
-            partName: 'Honda Service Pass Complimentary 10k A1 Maintenance + TSB 22-019 ECM Flash',
+            partName: 'Honda Service Pass Complimentary 10k A1 Maintenance',
             quantity: 1,
             partCost: 0.00,
             laborHours: 1.0,
@@ -251,7 +251,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         fairBenchmark: 0.00,
         declineReason: 'AdvisrAdvisor identified unapproved aftermarket flush chemical that voids Honda e-CVT warranty.',
         riskAssessment: 'LOW',
-        shopRecommended: 'Metro West Honda',
+        shopRecommended: 'Sample Honda Dealer',
         potentialDamage: 'Power flush machines dislodge internal clutch material in hybrid planetary gearset.'
       },
       {
@@ -264,8 +264,8 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         fairBenchmark: 0.00,
         declineReason: 'Vehicle had zero misfire codes (DTC P0300-P0304) and normal fuel trims (+1.2%).',
         riskAssessment: 'LOW',
-        shopRecommended: 'Metro West Honda',
-        potentialDamage: 'Unnecessary expense. Honda TSB 15-024 recommends against chemical flushes.'
+        shopRecommended: 'Sample Honda Dealer',
+        potentialDamage: 'Unnecessary expense. Not on the Honda maintenance schedule.'
       }
     ],
     aiDiscrepancies: [
@@ -285,8 +285,8 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         flagType: 'LABOR_PADDING',
         severity: 'HIGH',
         aiConfidence: 97,
-        oemReferenceSource: 'Mitchell 1 Labor Guide #BRK-402 (Honda Accord Hybrid 2018-2023)',
-        auditExplanation: 'Shop billed 2.4 hours for standard front disc brake service. Standard Mitchell & Chilton book labor time is 1.2 hours for pad set replacement + rotor machining ($222.00 padded labor).',
+        oemReferenceSource: 'Typical labor time for this job',
+        auditExplanation: 'Shop billed 2.4 hours for standard front disc brake service. This job typically takes about 1.2 hours for pad set replacement + rotor machining ($222.00 padded labor).',
         status: 'PENDING_REVIEW'
       },
       {
@@ -305,7 +305,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         flagType: 'UNWARRANTED_UPSELL',
         severity: 'HIGH',
         aiConfidence: 99,
-        oemReferenceSource: 'Honda Factory Service Bulletin #15-024 (Avoid Non-OEM Chemical Flushes)',
+        oemReferenceSource: 'Honda owner\'s manual maintenance schedule',
         auditExplanation: 'Aftermarket chemical flush package with zero diagnostic trouble codes. Direct violation of Honda OEM guidelines. Recommend complete removal from quote.',
         status: 'PENDING_REVIEW'
       },
@@ -325,7 +325,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         flagType: 'LABOR_PADDING',
         severity: 'MEDIUM',
         aiConfidence: 92,
-        oemReferenceSource: 'AllData OEM Honda Maintenance Benchmark #FLUID-BRK-01',
+        oemReferenceSource: 'Honda owner\'s manual maintenance schedule',
         auditExplanation: 'Brake fluid exchange is valid (due by 3-year time interval), but labor time of 1.0 hr exceeds OEM benchmark of 0.6 hr pressure bleed.',
         status: 'PENDING_REVIEW'
       }
@@ -335,7 +335,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         id: 'msg-01',
         sender: 'system',
         senderName: 'AdvisrAdvisor AI Dispatch',
-        text: 'Live Repair Order RO-94812 uploaded from Metro West Honda. Total estimate: $1,245.00. OCR engine detected $597.00 in labor padding and unauthorized flushes.',
+        text: 'Live Repair Order RO-94812 uploaded from Sample Honda Dealer. Total estimate: $1,245.00. OCR engine detected $597.00 in labor padding and unauthorized flushes.',
         timestamp: '10:14 AM',
         isRead: true
       },
@@ -343,16 +343,16 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         id: 'msg-02',
         sender: 'customer',
         senderName: 'Christopher Vance',
-        text: 'Hey guys, I am sitting in the waiting area at Metro West Honda right now. The advisor told me I need front brakes today and said something about a fuel system flush. Can you look at this before I authorize anything?',
+        text: 'Hey guys, I am sitting in the waiting area at Sample Honda Dealer right now. The advisor told me I need front brakes today and said something about a fuel system flush. Can you look at this before I authorize anything?',
         timestamp: '10:16 AM',
         isRead: true
       },
       {
         id: 'msg-03',
         sender: 'advisor',
-        senderName: 'Master Tech Dave (ASE-L1)',
+        senderName: 'Your Advocate',
         badge: 'Licensed Master Tech',
-        text: 'Hi Christopher! Looking at your live RO and video right now. Your front brake pads are indeed low (2.4mm, which is near the 2.0mm safety threshold), so we DO approve the pads. HOWEVER, they billed you 2.4 hours of labor when OEM standard is only 1.2 hours ($222 overcharge). Also, the $258 fuel flush is 100% unnecessary per Honda Bulletin 15-024.',
+        text: 'Hi Christopher! Looking at your live RO and video right now. Your front brake pads are indeed low (2.4mm, which is near the 2.0mm safety threshold), so we DO approve the pads. HOWEVER, they billed you 2.4 hours of labor when OEM standard is only 1.2 hours ($222 overcharge). Also, the $258 fuel flush is not on the Honda maintenance schedule at this mileage.',
         timestamp: '10:18 AM',
         isRead: true,
         actionCard: {
@@ -426,7 +426,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
     customerTier: 'tier-1',
     membershipActiveSince: 'January 2024',
     liveServiceDriveStatus: 'QUOTE_RECEIVED',
-    activeShopName: 'Bellevue Honda Master Care',
+    activeShopName: 'Sample Honda Dealer',
     rawInvoicePages: 3,
     serviceVisits: [
       {
@@ -434,7 +434,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         roNumber: 'RO-10492-B',
         date: '2024-07-10',
         mileage: 61400,
-        shopName: 'Bellevue Honda Master Care',
+        shopName: 'Sample Honda Dealer',
         shopType: 'Dealership',
         advisorName: 'Marcus Vance',
         totalCost: 1845.00,
@@ -511,7 +511,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         fairBenchmark: 0.00,
         declineReason: 'Honda Type 2 Blue Coolant is factory rated for 10 years / 100k miles. Non-OEM green coolant corrodes water pump impeller.',
         riskAssessment: 'HIGH_SAFETY',
-        shopRecommended: 'Bellevue Honda',
+        shopRecommended: 'Sample Honda Dealer',
         potentialDamage: 'Universal green coolant introduces silicate drop-out in Honda aluminum block.'
       }
     ],
@@ -531,8 +531,8 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         flagType: 'LABOR_PADDING',
         severity: 'HIGH',
         aiConfidence: 98,
-        oemReferenceSource: 'Mitchell 1 Honda CR-V 4-Wheel Brake Guide',
-        auditExplanation: 'Dealer billed 4.2 hrs. Factory Mitchell benchmark for all 4 corners with parking brake electronic retraction mode is 2.4 hrs total.',
+        oemReferenceSource: 'Typical labor time for this job',
+        auditExplanation: 'Dealer billed 4.2 hrs. All 4 corners with electronic parking brake retraction typically takes about 2.4 hrs total.',
         status: 'PENDING_REVIEW'
       }
     ],
@@ -548,9 +548,9 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
       {
         id: 'crv-msg-02',
         sender: 'advisor',
-        senderName: 'Advisor Mike (Master Tech)',
+        senderName: 'Your Advocate',
         badge: 'Licensed Master Tech',
-        text: 'Sarah, we found a $351 labor overcharge on the brakes. Mitchell OEM book time is 2.4 hrs, but they charged 4.2 hrs. Let us prepare your counter-offer script right now.',
+        text: 'Sarah, we found a $351 labor overcharge on the brakes. This job typically takes about 2.4 hrs, but they charged 4.2 hrs. Let us prepare your counter-offer script right now.',
         timestamp: '11:05 AM',
         isRead: true
       }
@@ -586,7 +586,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
     customerTier: 'tier-3',
     membershipActiveSince: 'November 2023',
     liveServiceDriveStatus: 'PREVENTATIVE_AUDIT',
-    activeShopName: 'Silicon Valley BMW Certified Service',
+    activeShopName: 'Sample BMW Dealer',
     rawInvoicePages: 4,
     serviceVisits: [
       {
@@ -594,7 +594,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         roNumber: 'RO-BMW-8819',
         date: '2024-07-02',
         mileage: 64100,
-        shopName: 'Silicon Valley BMW Certified Service',
+        shopName: 'Sample BMW Dealer',
         shopType: 'Dealership',
         advisorName: 'Christian Keller',
         totalCost: 2840.00,
@@ -671,7 +671,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         fairBenchmark: 0.00,
         declineReason: 'Dealership proprietary chemical package. BMW TIS warns against crankcase flush solvents.',
         riskAssessment: 'POWERTRAIN_FAILURE_RISK',
-        shopRecommended: 'Silicon Valley BMW',
+        shopRecommended: 'Sample BMW Dealer',
         potentialDamage: 'Solvents damage composite oil pump seals in B48 engine.'
       }
     ],
@@ -708,7 +708,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
       {
         id: 'bmw-msg-02',
         sender: 'advisor',
-        senderName: 'Master Tech Dave (ASE-L1)',
+        senderName: 'Your Advocate',
         badge: 'Licensed Master Tech',
         text: 'David, we caught $1,213.50 in total excess charges. The $632.50 crankcase flush is harmful to your B48 engine, and the front brake labor was padded by $441.',
         timestamp: '9:22 AM',
@@ -746,7 +746,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
     customerTier: 'tier-1',
     membershipActiveSince: 'August 2023',
     liveServiceDriveStatus: 'CURRENTLY_AT_SHOP',
-    activeShopName: 'Bay Area Hyundai & Genesis Service',
+    activeShopName: 'Sample Hyundai Dealer',
     rawInvoicePages: 2,
     serviceVisits: [
       {
@@ -754,7 +754,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         roNumber: 'RO-HY-49021',
         date: '2024-05-18',
         mileage: 51200,
-        shopName: 'Bay Area Hyundai & Genesis Service',
+        shopName: 'Sample Hyundai Dealer',
         shopType: 'Dealership',
         advisorName: 'Tony Ramirez',
         totalCost: 780.00,
@@ -818,7 +818,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
         fairBenchmark: 0.00,
         declineReason: 'Hyundai Owner Manual specifies transmission fluid is lifetime under normal service or simple drain/fill at 60k mi under severe service.',
         riskAssessment: 'MEDIUM',
-        shopRecommended: 'Bay Area Hyundai',
+        shopRecommended: 'Sample Hyundai Dealer',
         potentialDamage: 'Chemical flush voids Hyundai 10-Yr / 100k Factory Powertrain Warranty.'
       }
     ],
@@ -855,7 +855,7 @@ export const SAMPLE_ADVISOR_VEHICLES: Record<string, AdvisorVehicleProfile> = {
       {
         id: 'hy-msg-02',
         sender: 'advisor',
-        senderName: 'Master Tech Dave (ASE-L1)',
+        senderName: 'Your Advocate',
         badge: 'Licensed Master Tech',
         text: 'Marcus, that is FALSE and illegal under the Magnuson-Moss Warranty Act. In fact, third-party flush solvents can VOID your factory warranty. We will dispute this immediately.',
         timestamp: '2:17 PM',

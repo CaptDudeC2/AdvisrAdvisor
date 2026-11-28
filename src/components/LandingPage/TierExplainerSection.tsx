@@ -54,9 +54,9 @@ export const TierExplainerSection: React.FC<TierExplainerSectionProps> = ({ onSe
     },
     {
       label: 'Labor Hours Benchmarking',
-      tier1: 'Mitchell 1 Flat-Rate Enforced',
-      tier2: 'Mitchell 1 Flat-Rate Enforced',
-      tier3: 'Mitchell 1 Flat-Rate Enforced'
+      tier1: 'Padded Labor Flagged',
+      tier2: 'Padded Labor Flagged',
+      tier3: 'Padded Labor Flagged'
     },
     {
       label: 'Estimated Shop Bill Reduction',

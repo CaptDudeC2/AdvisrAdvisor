@@ -48,13 +48,13 @@ export const LiveAuditSimulator: React.FC<LiveAuditSimulatorProps> = ({ onOpenFu
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Interactive Advocate Simulator</span>
+            <span>Interactive Example</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             See How Your Chosen Tier Reshapes Any Repair Quote
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            Select a real-world repair estimate below and toggle between customer tiers to observe how our independent advocate engine filters non-essential items and corrects labor padding in real time.
+            Pick a sample repair estimate below and toggle between customer tiers to observe how our independent advocate engine filters non-essential items and corrects labor padding in real time.
           </p>
         </div>
 

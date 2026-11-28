@@ -214,7 +214,7 @@ export const AddToVaultModal: React.FC<AddToVaultModalProps> = ({
         'Cabin Air Filter Replacement (Due next visit ~45,000 mi)',
         'Front Brake Pad Replacement (Pads at 4mm - Estimated $280 due in ~5,000 mi)'
       ],
-      shopName: 'Metro Honda Service Center',
+      shopName: 'Sample Honda Dealer',
       totalAmount: 118.45
     };
 
@@ -833,7 +833,7 @@ export const AddToVaultModal: React.FC<AddToVaultModalProps> = ({
               {recordType === 'diy' && extractedDiyData && (
                 <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-left space-y-3.5 max-w-lg mx-auto">
                   <div className="flex items-center justify-between pb-2 border-b border-slate-800 text-xs">
-                    <span className="text-slate-400">AI Receipt OCR: <strong className="text-emerald-400">Verified Proof of Purchase</strong></span>
+                    <span className="text-slate-400">Receipt: <strong className="text-emerald-400">Uploaded</strong></span>
                     <span className="font-mono text-blue-400 font-bold">{extractedDiyData.mileage.toLocaleString()} mi</span>
                   </div>
 

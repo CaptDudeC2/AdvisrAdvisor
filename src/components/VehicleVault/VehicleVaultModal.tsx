@@ -122,11 +122,11 @@ export const VehicleVaultModal: React.FC<VehicleVaultModalProps> = ({
           <div className="space-y-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400">
               <Car className="w-3.5 h-3.5" />
-              <span>Supabase Vehicle Vault &amp; CARFAX Telemetry</span>
+              <span>Your Vehicle Vault</span>
             </div>
             <h2 className="text-2xl font-extrabold text-white">Household Vehicle Vault</h2>
             <p className="text-xs text-slate-400">
-              Manage your household vehicles, view continuous CARFAX records, and assign per-vehicle advocate preference tiers.
+              Manage your household vehicles, track service history, and assign per-vehicle advocate preference tiers.
             </p>
           </div>
 
@@ -218,7 +218,7 @@ export const VehicleVaultModal: React.FC<VehicleVaultModalProps> = ({
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-blue-400" />
-                <span>Continuous CARFAX &amp; Vehicle Health Snapshot</span>
+                <span>Vehicle Snapshot</span>
               </span>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -307,7 +307,7 @@ export const VehicleVaultModal: React.FC<VehicleVaultModalProps> = ({
                       </div>
 
                       <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/40 px-2 py-1 rounded border border-emerald-500/30 self-start sm:self-center shrink-0">
-                        ✓ Verified in CARFAX Vault
+                        ✓ Saved to Vault
                       </span>
                     </div>
                   ))}

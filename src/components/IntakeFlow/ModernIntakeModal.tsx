@@ -340,7 +340,7 @@ export const ModernIntakeModal: React.FC<ModernIntakeModalProps> = ({
     setSubmissionProgress('Running OCR on registration document & extracting 17-digit VIN...');
     await new Promise(r => setTimeout(r, 650));
 
-    setSubmissionProgress('Connecting to CARFAX Telemetry & Pulling National Title & Odometer records...');
+    setSubmissionProgress('Saving your vehicle and preferences...');
     await new Promise(r => setTimeout(r, 750));
 
     setSubmissionProgress(`Indexing ${uploadedServiceRecords.length} historical service records & ${uploadedWarrantyContracts.length} warranty contract clauses into AI vault...`);
@@ -408,7 +408,7 @@ export const ModernIntakeModal: React.FC<ModernIntakeModalProps> = ({
               <p className="text-xs text-slate-400 flex items-center gap-1.5 mt-0.5">
                 <span className="font-medium text-blue-400">The tech you need, the human you trust.</span>
                 <span className="text-slate-600 hidden sm:inline">•</span>
-                <span className="hidden sm:inline">Setup verified OEM schedule &amp; CARFAX records</span>
+                <span className="hidden sm:inline">Set up your vehicle and care preferences</span>
               </p>
             </div>
           </div>
@@ -965,7 +965,7 @@ export const ModernIntakeModal: React.FC<ModernIntakeModalProps> = ({
                     Take photos of any old receipts, DIY parts, or shop invoices.
                   </p>
                   <p className="text-sm text-slate-300 leading-relaxed">
-                    We will extract the data to build your permanent service history and link it directly to your vehicle's CARFAX timeline.
+                    Your advocate uses these to build your service history so you never pay twice for the same work.
                   </p>
                 </div>
 
@@ -1338,16 +1338,13 @@ export const ModernIntakeModal: React.FC<ModernIntakeModalProps> = ({
                   </div>
                   <div>
                     <p className="font-bold text-white">
-                      Automated CARFAX Cross-Validation &amp; Defense Engine
+                      Documents Ready for Review
                     </p>
                     <p className="text-[11px] text-slate-400">
-                      {uploadedServiceRecords.length + uploadedWarrantyContracts.length} document(s) queued for optical character recognition &amp; clause mapping.
+                      {uploadedServiceRecords.length + uploadedWarrantyContracts.length} document(s) ready for your advocate to review.
                     </p>
                   </div>
                 </div>
-                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-500/30 hidden sm:inline">
-                  256-BIT ENCRYPTED
-                </span>
               </div>
 
             </div>
@@ -1388,7 +1385,7 @@ export const ModernIntakeModal: React.FC<ModernIntakeModalProps> = ({
                   {detectedVehicleInfo.year} {detectedVehicleInfo.make} {detectedVehicleInfo.model}
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto">
-                  Your vehicle history is locked into your Household Vault with verified CARFAX telemetry, {TIERS_DATA[selectedTier].shortTitle} policy, {uploadedServiceRecords.length} service records, and {uploadedWarrantyContracts.length} warranty contract(s).
+                  Your vehicle history is locked into your Household Vault with your {TIERS_DATA[selectedTier].shortTitle} policy, {uploadedServiceRecords.length} service records, and {uploadedWarrantyContracts.length} warranty contract(s).
                 </p>
               </div>
 
@@ -1465,7 +1462,7 @@ export const ModernIntakeModal: React.FC<ModernIntakeModalProps> = ({
                 className="px-6 sm:px-8 py-3 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 hover:from-emerald-400 hover:to-blue-500 text-white text-xs sm:text-sm font-black transition-all shadow-lg shadow-emerald-950/50 flex items-center gap-2 cursor-pointer hover:scale-[1.02] active:scale-100"
               >
                 <Award className="w-4 h-4" />
-                <span>Generate Free Carfax &amp; Build My Vault</span>
+                <span>Build My Vault</span>
               </button>
             )}
           </div>
