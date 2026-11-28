@@ -183,7 +183,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-950/60 transition-all hover:scale-[1.02] active:scale-[0.98]"
                       >
                         <Sparkles className="w-4 h-4 stroke-[2.5]" />
-                        <span>Run Household Sweep</span>
+                        <span>Start My Audit</span>
                       </button>
                     </div>
 
